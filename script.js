@@ -347,4 +347,6 @@ function lerpColor(c1,c2,t){
   return `rgb(${Math.round(h(c1)+(h(c2)-h(c1))*t)},${Math.round(m(c1)+(m(c2)-m(c1))*t)},${Math.round(l(c1)+(l(c2)-l(c1))*t)})`;
 }
 
-window.addEventListener('load',()=>{ setTimeout(()=>drawCity('city-canvas-preview',230,0),100); });
+window.addEventListener('load', () => {
+  setTimeout(() => drawCity('city-canvas-preview', 230, 0), 100);
+});
