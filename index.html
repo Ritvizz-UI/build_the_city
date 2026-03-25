@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build a City — SDLC Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game">
+
+<!-- START SCREEN -->
+<div id="screen-start" class="screen active">
+  <div class="start-header">
+    <div class="game-tag">Educational Game</div>
+    <h1 class="start-title">Build a City</h1>
+    <div class="start-subtitle">SDLC Edition</div>
+    <p class="start-desc">Answer questions across 5 Software Development Life Cycle phases. Earn points and watch your city grow from an empty lot to a thriving metropolis!</p>
+    <div class="stat-pills">
+      <div class="pill"><span class="pill-icon">5</span>Phases</div>
+      <div class="pill"><span class="pill-icon">15</span>Questions</div>
+      <div class="pill"><span class="pill-icon">150</span>Max Points</div>
+    </div>
+    <button class="btn-primary" onclick="startGame()">Start building →</button>
+  </div>
+  <div style="margin-top:8px">
+    <div class="city-label">Your future city</div>
+    <canvas id="city-canvas-preview" width="680" height="230"></canvas>
+  </div>
+</div>
+
+<!-- QUESTION SCREEN -->
+<div id="screen-question" class="screen">
+  <div class="phase-track" id="phase-dots"></div>
+  <div class="top-bar">
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="phase-tag" id="q-phase-badge">Phase 1</span>
+      <div>
+        <div class="phase-name" id="q-phase-title">Planning</div>
+        <div class="phase-sub-text" id="q-phase-sub">Define goals and requirements</div>
+      </div>
+    </div>
+    <div class="score-display">
+      <div class="score-label">Score</div>
+      <div class="score-num" id="q-score">0</div>
+    </div>
+  </div>
+  <div class="progress-row" id="q-progress"></div>
+  <div class="question-card">
+    <div class="q-num" id="q-num">Question 1 of 3</div>
+    <div class="q-text" id="q-text"></div>
+    <div class="options" id="q-options"></div>
+    <div class="feedback-box" id="q-feedback"></div>
+  </div>
+  <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next question →</button>
+</div>
+
+<!-- PHASE COMPLETE SCREEN -->
+<div id="screen-phase-complete" class="screen">
+  <div class="phase-complete">
+    <div class="stars-row" id="pc-stars">★★★</div>
+    <h2 class="pc-title" id="pc-title">Phase complete!</h2>
+    <p class="pc-desc" id="pc-desc">Great work on the Planning phase</p>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-card-label">Phase score</div>
+        <div class="stat-card-val" id="pc-score">0</div>
+      </div>
+      <div class="stat-card accent-card">
+        <div class="stat-card-label">Total score</div>
+        <div class="stat-card-val" id="pc-total">0</div>
+      </div>
+      <div class="stat-card green-card">
+        <div class="stat-card-label">City built</div>
+        <div class="stat-card-val" id="pc-pct">20%</div>
+      </div>
+    </div>
+    <div class="city-label">Your city so far</div>
+    <canvas id="city-canvas-phase" width="680" height="230" style="margin-bottom:24px"></canvas>
+    <br>
+    <button class="btn-primary" id="pc-next-btn" onclick="continueGame()">Next phase →</button>
+  </div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div id="screen-final" class="screen">
+  <div class="final-screen">
+    <div class="game-tag">All phases complete!</div>
+    <h2 class="final-title" id="final-title">Your city is built!</h2>
+    <p class="final-sub" id="final-sub">You mastered all 5 SDLC phases</p>
+    <div class="stat-row">
+      <div class="stat-card accent-card">
+        <div class="stat-card-label">Final score</div>
+        <div class="stat-card-val" id="final-score">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Accuracy</div>
+        <div class="stat-card-val" id="final-acc">0%</div>
+      </div>
+    </div>
+    <div class="rank-badge" id="final-rank">🏆 Governor</div>
+    <div class="city-label">Your completed city</div>
+    <canvas id="city-canvas-final" width="680" height="280" style="margin-bottom:28px"></canvas>
+    <br>
+    <button class="btn-primary" onclick="restartGame()">Play again →</button>
+  </div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

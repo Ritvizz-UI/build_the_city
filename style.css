@@ -1,0 +1,134 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d0f1a;
+  --bg2: #141628;
+  --bg3: #1a1e35;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --text: #f0f2ff;
+  --muted: #8890b0;
+  --accent: #7c6ff7;
+  --accent2: #a89cf7;
+  --accent-bg: rgba(124,111,247,0.12);
+  --green: #4ade80;
+  --green-bg: rgba(74,222,128,0.1);
+  --red: #f87171;
+  --red-bg: rgba(248,113,113,0.1);
+  --amber: #fbbf24;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 16px 48px;
+}
+
+#game {
+  width: 100%;
+  max-width: 680px;
+}
+
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ---- START SCREEN ---- */
+.start-header {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+
+.game-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  background: var(--accent-bg);
+  border: 0.5px solid rgba(124,111,247,0.3);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 20px;
+}
+
+.start-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(38px, 8vw, 60px);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.start-subtitle {
+  font-size: 18px;
+  color: var(--accent2);
+  margin-bottom: 16px;
+}
+
+.start-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 auto 36px;
+}
+
+.btn-primary {
+  padding: 14px 36px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: #6a5de0; }
+
+/* Canvas */
+canvas {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 0.5px solid var(--border2);
+}
+
+/* Question UI */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 14px;
+  background: var(--bg2);
+  border-radius: var(--radius);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.opt {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+}
+
+.opt:hover { border-color: var(--accent); }
+
+.opt.correct { background: var(--green-bg); color: var(--green); }
+.opt.wrong { background: var(--red-bg); color: var(--red); }
+
+.next-btn {
+  margin-top: 16px;
+  padding: 10px 20px;
+}
