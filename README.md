@@ -1,4 +1,4 @@
-# 🏙️ Build the City — SDLC Game
+# 🏙️ Build a City — SDLC Game
 
 An interactive web-based game that helps users understand the **Software Development Life Cycle (SDLC)** in a fun and visual way.
 
